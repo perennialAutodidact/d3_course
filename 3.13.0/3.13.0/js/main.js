@@ -16,17 +16,18 @@ d3.csv('./data/revenues.csv')
     const CANVAS_HEIGHT = 400 + MARGINS.TOP + MARGINS.BOTTOM
     const CANVAS_WIDTH = 650 + MARGINS.LEFT + MARGINS.RIGHT
 
-    const y = d3
+    const yScale = d3
       .scaleLinear()
       .domain([0, d3.max(data.map(d => d.revenue))])
       .range([CANVAS_HEIGHT, 0])
 
-    const x = d3
+    const xScale = d3
       .scaleBand()
       .domain(data.map(d => d.month))
       .range([0, CANVAS_WIDTH])
       .paddingInner(0.3)
       .paddingOuter(0.3)
+
 
     const leftAxis = d3.axisLeft(y)
     const bottomAxis = d3.axisBottom(x)
